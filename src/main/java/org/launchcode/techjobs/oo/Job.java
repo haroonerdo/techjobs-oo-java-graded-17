@@ -19,6 +19,7 @@ public class Job {
 
     public Job() {
         this.id = nextId;
+        nextId++;
     }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
@@ -42,6 +43,7 @@ public class Job {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(id, name, employer, location, positionType, coreCompetency);
     }
 
