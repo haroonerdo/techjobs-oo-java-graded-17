@@ -3,8 +3,11 @@ package org.launchcode.techjobs.oo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Objects;
 
+import static java.lang.System.lineSeparator;
 import static org.junit.Assert.*;
 
 public class JobTest extends AbstractTest {
@@ -52,5 +55,29 @@ public class JobTest extends AbstractTest {
 
         assertEquals(firstJob.equals(secondJob), false);
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        Job job = createJob("Web Developer", "LaunchCode", "StL", "Back-end developer", "Java");
+        String firstChar = String.valueOf(job.toString().charAt(0));
+        String lastChar = String.valueOf(job.toString().charAt(job.toString().length()-1));
+        assertEquals(firstChar, lineSeparator());
+        assertEquals(lastChar, lineSeparator());
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
+        Job job = createJob("Web Developer", "LaunchCode", "StL", "Back-end developer", "Java");
+        String jobString = getJobString(job);
+        assertEquals(jobString, job.toString());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
+        Job job = createJob("Web Developer", "", "StL", "", "Java");
+        String jobString = getJobString(job);
+        assertEquals(jobString, job.toString());
+    }
+
 
 }

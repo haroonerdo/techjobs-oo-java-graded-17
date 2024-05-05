@@ -95,4 +95,26 @@ public class Job {
     public int getId() {
         return id;
     }
+
+    //toString()method
+    @Override
+    public String toString() {
+
+        if (id != 0 && name == null && employer == null && location == null && positionType == null && coreCompetency == null) {
+            return "\nOOPS! This job does not seem to exist.\n";
+        }
+
+        String lineSeparator = System.lineSeparator();
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(lineSeparator);
+        stringBuilder.append("ID: ").append(id != 0 ? id : "Data not available").append(lineSeparator);
+        stringBuilder.append("Name: ").append(name.toString() != "" ? name : "Data not available").append(lineSeparator);
+        stringBuilder.append("Employer: ").append(employer.toString() != "" ? employer.toString() : "Data not available").append(lineSeparator);
+        stringBuilder.append("Location: ").append(location.toString() != "" ? location.toString() : "Data not available").append(lineSeparator);
+        stringBuilder.append("Position Type: ").append(positionType.toString() != "" ? positionType.toString() : "Data not available").append(lineSeparator);
+        stringBuilder.append("Core Competency: ").append(coreCompetency.toString() != "" ? coreCompetency.toString() : "Data not available").append(lineSeparator);
+        //stringBuilder.append(lineSeparator);
+        return stringBuilder.toString();
+    }
 }
