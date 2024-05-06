@@ -38,13 +38,17 @@ public class Job {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
-        return id == job.id && Objects.equals(name, job.name) && Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
+        return id == job.id;
+        //I used generete for equals this gave me below, but I used above test is running
+        //return id == job.id && Objects.equals(name, job.name) && Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
     }
 
     @Override
     public int hashCode() {
+        return Objects.hash(id);
 
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+        //I used generete for hashcode this gave me below, but I used above test is running
+        //return Objects.hash(id, name, employer, location, positionType, coreCompetency);
     }
 
 
