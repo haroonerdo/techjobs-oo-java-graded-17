@@ -2,7 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class JobField {
+public abstract class JobField {
 
     private int id;
     private static int nextId = 1;
@@ -31,10 +31,12 @@ public class JobField {
         return getId() == jobField.getId();
     }
 
+
     @Override
     public int hashCode() {
         return Objects.hash(getId());
     }
+
 
     public int getId() {
         return id;

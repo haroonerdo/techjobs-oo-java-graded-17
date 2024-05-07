@@ -25,24 +25,7 @@ public class JobTest extends AbstractTest {
     public void testJobConstructorSetsAllFields() {
         Job job= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-//        if((job.getName() instanceof String)){
-//            assertEquals(job.getName(),"Product tester");
-//            System.out.println("running if blok for name");
-//        }else{
-//            assertEquals(job.getName().toString(),"Product tester");
-//            System.out.println("running else blok for name");
-//        }
-//
-//        if(job.getEmployer() instanceof Employer ){
-//            assertEquals(job.getEmployer().toString(), "ACME");
-//            System.out.println("running if blok for employer");
-//        }else{
-//            assertEquals(job.getEmployer(), "ACME");
-//            System.out.println("running else blok for employer");
-//        }
-
         assertEquals(job.getName(),"Product tester");
-        assertEquals(job.getEmployer().toString(), "ACME");
         assertEquals(job.getEmployer().toString(), "ACME");
         assertEquals(job.getLocation().toString(), "Desert");
         assertEquals(job.getPositionType().toString(), "Quality control");
@@ -58,7 +41,7 @@ public class JobTest extends AbstractTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        Job job = createJob("Web Developer", "LaunchCode", "StL", "Back-end developer", "Java");
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String firstChar = String.valueOf(job.toString().charAt(0));
         String lastChar = String.valueOf(job.toString().charAt(job.toString().length()-1));
         assertEquals(firstChar, lineSeparator());
@@ -67,14 +50,14 @@ public class JobTest extends AbstractTest {
 
     @Test
     public void testToStringContainsCorrectLabelsAndData() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
-        Job job = createJob("Web Developer", "LaunchCode", "StL", "Back-end developer", "Java");
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String jobString = getJobString(job);
         assertEquals(jobString, job.toString());
     }
 
     @Test
     public void testToStringHandlesEmptyField() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
-        Job job = createJob("Web Developer", "", "StL", "", "Java");
+        Job job = new Job("Product tester", new Employer(""), new Location(""), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String jobString = getJobString(job);
         assertEquals(jobString, job.toString());
     }

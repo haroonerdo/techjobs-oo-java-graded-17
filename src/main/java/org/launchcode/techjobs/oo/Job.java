@@ -33,24 +33,6 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Job job = (Job) o;
-        return id == job.id;
-        //I used generete for equals this gave me below, but I used above test is running
-        //return id == job.id && Objects.equals(name, job.name) && Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-
-        //I used generete for hashcode this gave me below, but I used above test is running
-        //return Objects.hash(id, name, employer, location, positionType, coreCompetency);
-    }
-
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
@@ -100,14 +82,12 @@ public class Job {
         return id;
     }
 
-    //toString()method
     @Override
     public String toString() {
 
-        if (id != 0 && name == null && employer == null && location == null && positionType == null && coreCompetency == null) {
+       if (id != 0 && name == null && employer == null && location == null && positionType == null && coreCompetency == null) {
             return "\nOOPS! This job does not seem to exist.\n";
         }
-
         String lineSeparator = System.lineSeparator();
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -118,7 +98,19 @@ public class Job {
         stringBuilder.append("Location: ").append(location.toString() != "" ? location.toString() : "Data not available").append(lineSeparator);
         stringBuilder.append("Position Type: ").append(positionType.toString() != "" ? positionType.toString() : "Data not available").append(lineSeparator);
         stringBuilder.append("Core Competency: ").append(coreCompetency.toString() != "" ? coreCompetency.toString() : "Data not available").append(lineSeparator);
-        //stringBuilder.append(lineSeparator);
         return stringBuilder.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

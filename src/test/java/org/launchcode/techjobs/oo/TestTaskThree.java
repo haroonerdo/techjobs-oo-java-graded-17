@@ -206,18 +206,18 @@ public class TestTaskThree extends AbstractTest {
 
     @Test
     public void testEqualsMethod() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException, InstantiationException, NoSuchFieldException {
-        Job job = createJob(
+        Job job = new Job(
                 "Name",
-                "Employer",
-                "Location",
-                "Position Type",
-                "Core Competency");
-        Job anotherJob = createJob(
+                new Employer("Employer"),
+                new Location("Location"),
+                new PositionType("Position Type"),
+                new CoreCompetency("Core Competency"));
+        Job anotherJob =  new Job(
                 "Name",
-                "Employer",
-                "Location",
-                "Position Type",
-                "Core Competency");
+                new Employer("Employer"),
+                new Location("Location"),
+                new PositionType("Position Type"),
+                new CoreCompetency("Core Competency"));
 
         try {
             Job.class.getDeclaredMethod("equals", Object.class);
@@ -238,18 +238,18 @@ public class TestTaskThree extends AbstractTest {
 
     @Test
     public void testHashCodeMethod() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
-        Job job = createJob(
+        Job job = new Job(
                 "Name",
-                "Employer",
-                "Location",
-                "Position Type",
-                "Core Competency");
-        Job anotherJob = createJob(
+                new Employer("Employer"),
+                new Location("Location"),
+                new PositionType("Position Type"),
+                new CoreCompetency("Core Competency"));
+        Job anotherJob =  new Job(
                 "Name",
-                "Employer",
-                "Location",
-                "Position Type",
-                "Core Competency");
+                new Employer("Employer"),
+                new Location("Location"),
+                new PositionType("Position Type"),
+                new CoreCompetency("Core Competency"));
         Method hashCodeMethod = null;
 
         try {

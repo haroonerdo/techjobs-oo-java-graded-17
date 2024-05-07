@@ -8,6 +8,7 @@ public class PositionType extends JobField{
     }
 }
 
+
 // if public class PositionType extends JobField use the above
 // not extends use the bellow
 
